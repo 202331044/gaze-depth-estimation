@@ -1,23 +1,24 @@
-#include "opencv2/opencv.hpp"
+#include <opencv2/opencv.hpp>
 #include <iostream>
-#include "string"
-#include "vector"
-#include "cmath"
-#include "fstream"
-#include "../include/image_processing.h"
-#include "../include/pupil_detector.h"
+#include <string>
+#include <vector>
+#include <cmath>
+#include <fstream>
+#include "image_processing.h"
+#include "pupil_detector.h"
 
 using namespace std;
 using namespace cv;
 
 int run(int sbjIdx, bool isDefaultSbj, bool isShowingImg, bool isSavingImg, bool isShowingRes, bool isSavingRes)
 {
+	string strSbjIdx = to_string(sbjIdx);
 	string processedImgPath = "data/processed_frames/";
-	string extraOutputPath = "results/extra/sbj" + to_string(sbjIdx) + "/";
-	string extraInputPath = "data/frames/extra/sbj" + to_string(sbjIdx) + "/*.jpg";
+	string extraOutputPath = "results/extra/sbj" + strSbjIdx + "/";
+	string extraInputPath = "data/frames/extra/sbj" + strSbjIdx + "/*.jpg";
 
-	string defOutputPath = "results/main/sbj" + to_string(sbjIdx) + "/";
-	string defInputPath = "data/frames/main/sbj" + to_string(sbjIdx) + "/*.jpg";
+	string defOutputPath = "results/main/sbj" + strSbjIdx + "/";
+	string defInputPath = "data/frames/main/sbj" + strSbjIdx + "/*.jpg";
 	
 	string defTmplPath = "data/templates/main/";
 	string extraTmplPath = "data/templates/extra/";
@@ -282,7 +283,7 @@ int run(int sbjIdx, bool isDefaultSbj, bool isShowingImg, bool isSavingImg, bool
 
 	if (isSavingRes)
 	{
-		string txtFilename = "result_sbj" + to_string(sbjIdx) + ".txt";
+		string txtFilename = "result_sbj" + strSbjIdx + ".txt";
 		ofstream fout(outputPath + txtFilename);
 		fout << "피험자,시선깊이(cm),DPI거리(p1-p4),동공크기" << "\n";
 

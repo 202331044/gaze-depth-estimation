@@ -1,15 +1,9 @@
-#include "opencv2/opencv.hpp"
-#include <iostream>
-#include "string"
-#include "string.h"
-#include "vector"
-#include "cmath"
-#include "fstream"
-#include "include/image_processing.h"
-#include "include/experiment_run.h"
+#include <string>
+#include <vector>
+#include "image_processing.h"
+#include "experiment_run.h"
 
 using namespace std;
-using namespace cv;
 
 int main()
 {
@@ -18,8 +12,6 @@ int main()
 	bool isSavingImg = false;
 	bool isShowingRes = false;
 	bool isSavingRes = true;
-
-	int sbjIdx = 1;
 
 	string extraSbjVideo = "data/raw_video/extra/sbj";
 	string defSbjVideo = "data/raw_video/main/sbj";
@@ -39,6 +31,8 @@ int main()
 		videoPath = extraSbjVideo;
 		savePath = extraSavePath;
 	}
+
+	int sbjIdx = 1;
 
 	//vector<string> depthLv = { "15cm", "20cm" , "25cm" , "30cm" , "35cm" , "40cm" , "45cm" , "50cm" , "55cm" , "60cm" };	
 	//for(string depth: depthLv)

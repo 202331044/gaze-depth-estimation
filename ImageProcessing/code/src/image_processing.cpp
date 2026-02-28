@@ -1,18 +1,15 @@
-#include "opencv2/opencv.hpp"
+#include <opencv2/opencv.hpp>
 #include <iostream>
-#include "string"
-#include "vector"
-#include "cmath"
-#include "fstream"
-#include "../include/pupil_detector.h"
-#include "sstream"
+#include <string>
+#include <vector>
+#include <cmath>
+#include <fstream>
+#include "pupil_detector.h"
+#include <sstream>
 #include <algorithm>
 
 using namespace std;
 using namespace cv;
-
-bool show_img = false;
-bool save_img = false;
 
 void saveFramesFromVideo(string videoPath, string savePath, int sbjIdx, int interval)
 {

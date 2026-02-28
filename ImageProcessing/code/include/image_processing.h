@@ -1,26 +1,20 @@
 #pragma once
-#include "opencv2/opencv.hpp"
-#include <iostream>
-#include "string"
-#include "vector"
-#include "cmath"
-#include "fstream"
+#include <opencv2/core.hpp>
+#include <string>
+#include <vector>
 #include "pupil_detector.h"
 
-using namespace std;
-using namespace cv;
+void saveFramesFromVideo(std::string videoPath, std::string savePath, int sbjIdx, int interval);
+std::vector<std::string> readFiles(std::string filePath);
+Pupil detectPupil(cv::Mat roi, int sbjIdx, bool isSavingImg, bool isShowingImg, std::string savePath);
+cv::Point2f detectP1Center(int sbjIdx, cv::Mat proiBin, bool isShowingImg, bool isSavingImg, std::string savePath);
+cv::Point2f detectP4Center(int sbjIdx, cv::Mat proi, int colCenter, int rowCenter, std::string tmplName, bool isShowingImg, bool isSavingImg, std::string savePath);
+double calculateDpiDistance(cv::Point p1, cv::Point p4);
 
-void saveFramesFromVideo(string videoPath, string savePath, int sbjIdx, int interval);
-vector<string> readFiles(string filePath);
-Pupil detectPupil(Mat roi, int sbjIdx, bool isSavingImg, bool isShowingImg, string savePath);
-Point2f detectP1Center(int sbjIdx, Mat proiBin, bool isShowingImg, bool isSavingImg, string savePath);
-Point2f detectP4Center(int sbjIdx, Mat proi, int colCenter, int rowCenter, string tmplName, bool isShowingImg, bool isSavingImg, string savePath);
-double calculateDpiDistance(Point p1, Point p4);
+void drawCenters(cv::Mat img, cv::Point pupil, cv::Point p1, cv::Point p4);
+void writeText(cv::Mat img, cv::Point pupil, cv::Point p1, cv::Point p4, int diameter, double distance);
+void createResultImg(cv::Mat img, cv::Point pupil, cv::Point p1, cv::Point p4, int diameter, double distance, cv::Rect boundingBox);
+void drawBoundingBox(cv::Mat img, cv::Rect boundingBox);
 
-void drawCenters(Mat img, Point pupil, Point p1, Point p4);
-void writeText(Mat img, Point pupil, Point p1, Point p4, int diameter, double distance);
-void createResultImg(Mat img, Point pupil, Point p1, Point p4, int diameter, double distance, Rect boundingBox);
-void drawBoundingBox(Mat img, Rect boundingBox);
-
-void setP1Position(string filepath, int cnt, int startLine, Point origP4, Point2f& newP1Center, float& newDpiDist);
-void setP4Position(string filepath, int cnt, int startLine, Point origP1, Point2f& newP4Center, float& newDpiDist);
+void setP1Position(std::string filepath, int cnt, int startLine, cv::Point origP4, cv::Point2f& newP1Center, float& newDpiDist);
+void setP4Position(std::string filepath, int cnt, int startLine, cv::Point origP1, cv::Point2f& newP4Center, float& newDpiDist);
