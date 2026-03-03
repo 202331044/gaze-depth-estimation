@@ -79,9 +79,9 @@ To address these challenges, this study proposes a **monocular gaze depth estima
 1. Apply blurring and binary thresholding to the ROI
 2. Detect contours  
 3. Compute area and perimeter
-   - Apply convex hull when criteria are satisfied
-   - Extract ellipses from the convex hull only if the convex hull contains enough points
-4. Use the length of the fitted ellipse as the pupil size
+   - Compute the convex hull when the criteria are satisfied
+   - Extract an ellipse from the convex hull only if it contains a sufficient number of points
+4. Define the pupil size as the major axis length of the fitted ellipse
 
 ---
 <img src="assets/pupil_detection.jpg" width="800">
@@ -93,9 +93,9 @@ To address these challenges, this study proposes a **monocular gaze depth estima
 1. Apply binary thresholding to the PROI
 2. Detect contours  
 3. Compute area and perimeter
-   - Apply convex hull when criteria are satisfied
-   - Extract ellipses from the convex hull only if the convex hull contains enough points
-4. Use the center of the fitted ellipse as the 1st Purkinje image center
+   - Compute the convex hull when the criteria are satisfied
+   - Extract an ellipse from the convex hull only if it contains a sufficient number of points
+4. Define the 1st Purkinje image center as the center of the fitted ellipse
 
 ---
 
@@ -105,7 +105,7 @@ Due to its **small size and low brightness**, the **4th Purkinje image** is diff
 
 → **Template matching** is employed instead.
 
-Use the location of the maximum value in the template matching map as the center.
+The maximum matching score location was adjusted and used as the center.
 
 ---
 <img src="assets/dpi_detection.jpg" width="800">
@@ -122,9 +122,14 @@ Use the location of the maximum value in the template matching map as the center
    - Spearman’s rank correlation analysis
 
 3. **Regression Analysis**
-   - Linear regression  
-   - Nonlinear regression  
-   - Multiple linear regression  
+   - Personalized models
+     -    Linear model
+     -    Nonlinear model
+     -    Multiple linear model
+   - Generalized models
+     -    Linear model
+     -    Nonlinear model
+     -    Multiple linear model
 
 ---
 <img src="assets/analysis.jpg" width="800">
@@ -138,24 +143,17 @@ Use the location of the maximum value in the template matching map as the center
    - Pupil size ↔ gaze depth
    - DPI distance ↔ pupil size
 
-2. However, regression analysis demonstrated that a **higher correlation does not necessarily lead to better prediction performance**.
+2. **Higher correlation did not necessarily mean better prediction performance**.
 
-3. Based on prediction accuracy (**RMSE and R²**):
-   - Models using **DPI distance generally outperformed those based on pupil size**.
-   - This is likely because pupil size is influenced by uncontrollable factors such as psychological states, making it less reliable for depth estimation.
-   - The **multiple linear regression model achieved higher accuracy than the single linear model** and **showed more stable performance compared to the logistic model**.
+3. Based on RMSE and R², the **DPI distance-based model generally outperformed the pupil size-based model**.
 
-4. By **combining DPI distance and pupil size**, the proposed model **achieved consistently high and stable prediction performance**, demonstrating the effectiveness of multi-feature integration.
+4. Among the generalized models, the multiple linear model achieved the best performance:
+   - R² = 0.71
+   - RMSE = 7.69 cm
+   - MAPE = 15.36 ± 14.05%
+   - ~3.15% lower error than the linear model
+   - ~1.79% lower error than the nonlinear model
+
+5. In the generalized models, **combining DPI distance and pupil size** consistently **outperformed using either feature alone**.
 
 ---
-
-### Best Performing Model
-
-Using data from all subjects, we derived the following **multiple linear regression model**:
-
-$$ \text{Depth Fixation} = 20.746 \cdot \text{DPI Distance} + 5.223 \cdot \text{Pupil Size} + 16.495 \cdot (\text{DPI Distance} \times \text{Pupil Size}) + 13.880 $$
-
-- **R²:** `0.71`  
-- **RMSE:** `7.69`  
-
-This model **achieved the best performance among all proposed general models**.
