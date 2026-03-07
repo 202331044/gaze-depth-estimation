@@ -1,0 +1,5 @@
+	Multiple Linear Regression
+r2	0.9
+mse	21.45
+rmse	4.63
+equation	y = 33.226 * x1 + 2.935 * x2 + 11.394 * x1 * x2 + 14.602

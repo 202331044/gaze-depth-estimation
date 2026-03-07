@@ -1,0 +1,4 @@
+	general multiple linear regression error
+mape	15.36
+mape std	14.05
+rmse	7.69

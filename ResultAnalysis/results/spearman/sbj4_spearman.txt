@@ -1,0 +1,3 @@
+	DPI_depth	diameter_depth	DPI_diameter
+corr	0.32	0.39	0.75
+p_value	0.02	0.01	0.0

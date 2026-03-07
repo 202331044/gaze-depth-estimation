@@ -1,0 +1,5 @@
+	General Multiple Linear Regression
+r2	0.71
+mse	59.21
+rmse	7.69
+equation	y = 20.746 * x1 + 5.223 * x2 + 16.495 * x1 * x2 + 13.88

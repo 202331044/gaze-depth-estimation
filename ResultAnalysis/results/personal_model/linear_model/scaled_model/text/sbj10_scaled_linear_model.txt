@@ -1,0 +1,4 @@
+	DPI_depth	diameter_depth	DPI_diameter
+r2	0.67	0.75	0.82
+mse	68.17	51.86	0.01
+rmse	8.26	7.2	0.11
