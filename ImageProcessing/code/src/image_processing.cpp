@@ -77,7 +77,7 @@ Pupil detectPupil(Mat roiBin, int sbjIdx, bool isSavingImg, bool isShowingImg, s
 		if (parentIdx == -1) continue;
 
 		double area = contourArea(pupilContours[i]);
-		double perimeter = arcLength(pupilContours[i], true);//Contour length
+		double perimeter = arcLength(pupilContours[i], true);
 
 		double areaTh = 4000, perimeterTh = 200;
 		int pointTh = 30;
@@ -123,7 +123,7 @@ Pupil detectPupil(Mat roiBin, int sbjIdx, bool isSavingImg, bool isShowingImg, s
 	 
 		Mat roiBoundingBox;
 		cvtColor(roiBin, roiBoundingBox, COLOR_GRAY2BGR);
-		rectangle(roiBoundingBox, boundingBox, Scalar(0, 0, 255), 2);//red
+		rectangle(roiBoundingBox, boundingBox, Scalar(0, 0, 255), 2);//Red
 
 		if (isShowingImg)
 		{
@@ -155,7 +155,7 @@ Point2f detectP1Center(int sbjIdx, Mat proiBin, bool isShowingImg, bool isSaving
 	for (size_t i = 0; i < p1Contours.size(); i++)
 	{
 		double area = contourArea(p1Contours[i]);
-		double perimeter = arcLength(p1Contours[i], true); //Contour length
+		double perimeter = arcLength(p1Contours[i], true);
 
 		if (perimeter <= 0) continue;
 

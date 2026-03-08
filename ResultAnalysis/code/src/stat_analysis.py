@@ -1,5 +1,3 @@
-
-# -*- coding: utf-8 -*-
 from scipy.stats import spearmanr
 import numpy as np
 import pandas as pd

@@ -117,8 +117,6 @@ def run_linear_regression(train_sbj_idx, test_sbj_idx, train_y, test_y,
         filename = text_path/f"{name}.txt" 
         data.to_csv(filename, sep = '\t')
 
-                
-#다중 선형 회귀
 def run_multiple_linear_regression (train_sbj_idx, test_sbj_idx, train_y, test_y, 
                                    train_x, test_x,
                                    file_path = None, is_save = False, 

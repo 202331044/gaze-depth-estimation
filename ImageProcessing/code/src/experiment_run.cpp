@@ -32,24 +32,24 @@ int run(int sbjIdx, bool isDefaultSbj, bool isShowingImg, bool isSavingImg, bool
 	else if (sbjIdx == 11) idx = 4;
 
 	vector<Rect> defRoiPos = { Rect(390, 80, 400, 260),
-							Rect(400, 40, 400, 260),
-							Rect(380, 20, 400, 260),
-							Rect(380, 0, 400, 260),
-							Rect(300, 160, 400, 260) };
+							   Rect(400, 40, 400, 260),
+							   Rect(380, 20, 400, 260),
+							   Rect(380, 0, 400, 260),
+							   Rect(300, 160, 400, 260) };
 
 	vector<Rect> extraRoiPos = { Rect(360, 0, 400, 260),
-						Rect(350, 0, 400, 260),
-						Rect(350, 0, 400, 260) };
+								 Rect(350, 0, 400, 260),
+								 Rect(350, 0, 400, 260) };
 
 	vector<Size> defProiSize = { Size(150, 120),
-							  Size(150, 100),
-							  Size(150, 100),
-							  Size(150, 100),
-							  Size(150, 120) };
+								 Size(150, 100),
+								 Size(150, 100),
+								 Size(150, 100),
+								 Size(150, 120) };
 
 	vector<Size> extraProiSize = { Size(150, 170),
-							  Size(150, 120),
-							  Size(150, 160) };
+								   Size(150, 120),
+								   Size(150, 160) };
 
 	vector<int> defPupilTh = { 60, 80, 60, 60, 60 };
 	vector<int> defPurkinje1Th = { 220, 220, 220, 220, 220 };
