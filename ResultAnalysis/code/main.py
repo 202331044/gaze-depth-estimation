@@ -86,9 +86,9 @@ def main():
     elif not is_total:
         save_path = save_path/"main"
 
-    is_save = True
+    is_save = False
 
-    1
+    #1
     print('run spearman')
     file_path = save_path/"spearman"
 
@@ -118,7 +118,7 @@ def main():
                                  train['diameter'][idx], test['diameter'][idx],
                                  file_path, is_save)
 
-    4
+    #4
     print('run scaled linear regression')
     file_path = save_path/"personal_model"/"linear_model"/"scaled_model"
 
