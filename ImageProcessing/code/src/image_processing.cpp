@@ -78,14 +78,15 @@ Pupil detectPupil(Mat roiBin, int sbjIdx, bool isSavingImg, bool isShowingImg, s
 
 		double area = contourArea(pupilContours[i]);
 		double perimeter = arcLength(pupilContours[i], true);
+		double circularity = (4 * CV_PI * area) / (perimeter * perimeter);
 
-		double areaTh = 4000, perimeterTh = 200;
+		double areaTh = 3000, perimeterTh = 200, circularityTh = 0.6;
 		int pointTh = 30;
 
-		if (sbjIdx == 2 || sbjIdx == 4 || sbjIdx == 8) 
-			areaTh = 200, perimeterTh = 50; pointTh = 20;
-	
-		if (area < areaTh && perimeter < perimeterTh)
+		if (sbjIdx == 2 || sbjIdx == 4 || sbjIdx == 8)
+			areaTh = 2000, perimeterTh = 200, pointTh = 20, circularityTh = 0.5;
+
+		if (area < areaTh || perimeter < perimeterTh || circularity < circularityTh)
 			continue;
 
 		vector<Point> hull;
