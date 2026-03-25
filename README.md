@@ -16,6 +16,36 @@ The goal is to develop a **low-cost, non-contact, single-camera-based approach**
 
 ---
 
+## Project Structure
+
+```bash
+.
+├── ImageProcessing/
+│   ├── code/
+│   │   ├── include/
+│   │   ├── src/
+│   │   │   ├── experiment_run.cpp
+│   │   │   ├── image_processing.cpp
+│   │   │   └── pupil_detector.cpp
+│   │   └── main.py
+│   ├── data/
+│   └── results/
+│
+├── ResultAnalysis/
+│   ├── code/
+│   │   └── src/
+│   │       ├── data_loader.py
+│   │       ├── linear_analysis.py
+│   │       ├── logistic_curve_analysis.py
+│   │       ├── plot_utils.py
+│   │       └── stat_analysis.py
+│   │   └── main.py
+│   ├── data/
+│   └── results/
+```
+
+---
+
 ## Background
 
 With the growing demand for **3D gaze tracking** in applications such as AR/VR, HCI, and robotics, **gaze depth estimation** has become an increasingly important research topic.
