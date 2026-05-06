@@ -36,7 +36,7 @@ class LogisticCurveRegressor(BaseEstimator, RegressorMixin):
         X = X.ravel()
         return self.logistic(X, *self.params_)
 
-def logistci_curve(x, y):
+def logistic_curve(x, y):
     lr = LogisticCurveRegressor()
     lr.fit(x, y)
     return lr
@@ -68,9 +68,9 @@ def run_logistic_curve(train_sbj_idx, test_sbj_idx, train_y, test_y,
     else:
         name = "general_nonlinear_model" if is_general else f"sbj{sbj}_nonlinear_model"
 
-    lm1 = logistci_curve(train_distance, train_y)
-    lm2 = logistci_curve(train_diameter, train_y)
-    lm3 = logistci_curve(train_distance, train_diameter)
+    lm1 = logistic_curve(train_distance, train_y)
+    lm2 = logistic_curve(train_diameter, train_y)
+    lm3 = logistic_curve(train_distance, train_diameter)
                 
     _y_pred1 = lm1.predict(x1_range)
     _y_pred2 = lm2.predict(x2_range)
