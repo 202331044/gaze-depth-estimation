@@ -12,7 +12,7 @@ This project investigates a **monocular gaze depth estimation method** based on:
 - **Distance between Dual Purkinje Images (DPI)**
 - **Pupil size**
 
-The goal is to develop a **low-cost, non-contact, single-camera-based approach** that overcomes the limitations of conventional gaze depth estimation systems.
+The goal is to develop a **low-cost, single-camera, single-eye-image-based approach** that overcomes the limitations of conventional gaze depth estimation systems.
 
 ---
 
@@ -50,17 +50,17 @@ The goal is to develop a **low-cost, non-contact, single-camera-based approach**
 
 With the growing demand for **3D gaze tracking** in applications such as AR/VR, HCI, and robotics, **gaze depth estimation** has become an increasingly important research topic.
 
-However, existing methods typically suffer from the following limitations:
+However, existing methods typically have the following limitations:
 
-- Binocular-based systems  
-- Requirement of wearable sensors  
-- Use of multiple cameras  
+- Dependence on binocular systems
+- Multiple-camera setups
+- High implementation costs
 
-To address these challenges, this study proposes a **monocular gaze depth estimation framework** that satisfies:
+To address these challenges, this study proposes a gaze depth estimation framework that satisfies:
 
-- Single-eye (monocular) operation  
-- Non-contact, sensor-free measurement  
-- Single-camera setup  
+- Single-eye operation
+- Single-camera setup
+- Low computational complexity and cost
 
 ---
 
@@ -68,7 +68,7 @@ To address these challenges, this study proposes a **monocular gaze depth estima
 
 1. Propose a **monocular gaze depth estimation method** using **DPI distance and pupil size**.
 2. Conduct experiments over a **wide gaze depth range (15–60 cm)** at **5 cm intervals**.
-3. Demonstrate the feasibility of a **low-cost and non-invasive approach**.
+3. Demonstrate the feasibility of a **low-cost approach**.
 
 ---
 
@@ -85,10 +85,10 @@ To address these challenges, this study proposes a **monocular gaze depth estima
 
 ### Data Acquisition
 
-- ~7 seconds of **right-eye video per depth level**
-- **5 frames extracted per depth**
-  - 3 for training  
-  - 2 for testing  
+- `~7 seconds` of right-eye video per depth level
+- `5 frames` extracted per depth
+  - `3` for training  
+  - `2` for testing  
 
 ### Image Specifications
 
@@ -154,11 +154,11 @@ The maximum matching score location was adjusted and used as the center.
 3. **Regression Analysis**
    - Personalized models
      -    Linear model
-     -    Nonlinear model
+     -    Nonlinear model (logistic curve fitting)
      -    Multiple linear model
    - Generalized models
      -    Linear model
-     -    Nonlinear model
+     -    Nonlinear model (logistic curve fitting)
      -    Multiple linear model
 
 ---
@@ -173,16 +173,16 @@ The maximum matching score location was adjusted and used as the center.
    - Pupil size ↔ gaze depth
    - DPI distance ↔ pupil size
 
-2. **Higher correlation did not necessarily mean better prediction performance**.
+2. Higher correlation did not necessarily mean better prediction performance.
 
-3. Based on RMSE and R², the **DPI distance-based model generally outperformed the pupil size-based model**.
+3. Based on **RMSE and R²**, the **DPI distance-based model generally outperformed the pupil size-based model**.
 
-4. Among the generalized models, the multiple linear model achieved the best performance:
-   - R² = 0.71
-   - RMSE = 7.69 cm
-   - MAPE = 15.36 ± 14.05%
-   - ~3.15% lower error than the linear model
-   - ~1.79% lower error than the nonlinear model
+4. Among the generalized models, the **multiple linear model achieved the best performance**:
+   - R² = `0.71`
+   - RMSE = `7.69 cm`
+   - MAPE = `15.36 ± 14.05%`
+   - `~3.15%` lower error than the linear model
+   - `~1.79%` lower error than the nonlinear model
 
 5. In the generalized models, **combining DPI distance and pupil size** consistently **outperformed using either feature alone**.
 
